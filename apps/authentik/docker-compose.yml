@@ -1,3 +1,4 @@
+version: 3
 services:
   postgresql:
     image: docker.io/library/postgres:16-alpine
@@ -51,11 +52,11 @@ services:
     networks:
       - servers
       - authentik
-    depends_on:
-      postgresql:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
+    # depends_on:
+      # postgresql:
+        # condition: service_healthy
+      # redis:
+        # condition: service_healthy
   worker:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2025.2.1}
     restart: unless-stopped
@@ -80,11 +81,11 @@ services:
 #      - ./media:/media
 #      - ./certs:/certs
 #      - ./custom-templates:/templates
-    depends_on:
-      postgresql:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
+    # depends_on:
+      # postgresql:
+        # condition: service_healthy
+      # redis:
+        # condition: service_healthy
 
 volumes:
   database:

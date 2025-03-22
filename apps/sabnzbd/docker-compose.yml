@@ -1,0 +1,23 @@
+services:
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    environment:
+      - PUID=99
+      - PGID=100
+      - TZ=America/New_York
+    volumes:
+      - /mnt/user/appdata/sabnzbd/config:/config
+      - /mnt/user/data/downloads:/data/downloads
+      - /mnt/disks/5MT076EJ/incomplete-downloads:/incomplete-downloads
+    expose:
+      - 8080
+    # ports:
+    #  - 8087:8080
+    restart: unless-stopped
+    networks:
+      servers
+networks:
+  servers:
+    external: true
+      

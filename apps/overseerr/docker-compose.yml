@@ -19,4 +19,4 @@ services:
       - servers
     labels:
       - net.unraid.docker.icon=https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/overseerr-icon.png
-      - net.unraid.docker.webui=http://[IP]:[PORT:5055]/
+    #  - net.unraid.docker.webui=http://[IP]:[PORT:5055]/

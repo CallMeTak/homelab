@@ -1,0 +1,25 @@
+services:
+  jellyfin:
+    networks:
+      - servers
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+
+    volumes:
+      - type: bind
+        source: /mnt/user/appdata/jellyfin/cache
+        target: /cache
+      - type: bind
+        source: /mnt/user/appdata/jellyfin/config
+        target: /config
+
+      - type: bind
+        source: /mnt/user/data/media
+        target: /media
+        read_only: true
+    restart: 'unless-stopped'
+
+networks:
+  servers:
+    external: True
+     

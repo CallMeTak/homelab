@@ -1,0 +1,22 @@
+networks:
+  servers:
+    external: True
+    
+services:
+  overseerr:
+    container_name: overseer
+    image: hotio/overseerr:release
+    expose:
+      - 5055
+    environment:
+      PUID: '99'
+      PGID: '100'
+    volumes:
+      - type: bind
+        source: /mnt/user/appdata/binhex-overseerr
+        target: /config
+    networks:
+      - servers
+    labels:
+      - net.unraid.docker.icon=https://raw.githubusercontent.com/binhex/docker-templates/master/binhex/images/overseerr-icon.png
+      - net.unraid.docker.webui=http://[IP]:[PORT:5055]/

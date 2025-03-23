@@ -13,7 +13,7 @@ services:
       PGID: '100'
     volumes:
       - type: bind
-        source: /mnt/user/appdata/binhex-overseerr
+        source: /mnt/user/appdata/overseerr
         target: /config
     networks:
       - servers

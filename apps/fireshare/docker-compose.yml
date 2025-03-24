@@ -1,0 +1,28 @@
+services:
+    fireshare:
+        image: shaneisrael/fireshare
+        container_name: fireshare
+        networks:
+            - servers
+        environment:
+            TZ: 'America/New_York'
+            ADMIN_USERNAME: admin
+            ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+            DOMAIN: ${DOMAIN}
+            SECRET_KEY: ${SECRET_KEY}
+            MINUTES_BETWEEN_VIDEO_SCANS: 5
+            THUMBNAIL_VIDEO_LOCATION: 0
+            PUID: '99'
+            PGID: '100'
+        labels:
+            - net.unraid.docker.icon='https://raw.githubusercontent.com/ShaneIsrael/fireshare/main/app/client/src/assets/logo.png'
+        expose:
+            - 80/tcp
+        volumes:
+            - /mnt/user/appdata/fireshare:/data
+            - /mnt/user/GameClips:/videos
+            - /mnt/user/appdata/fireshare_processed:/processed
+networks:
+    servers:
+        external: true
+        name: servers

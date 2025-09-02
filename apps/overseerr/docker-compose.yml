@@ -5,7 +5,7 @@ networks:
 services:
   overseerr:
     container_name: overseer
-    image: hotio/overseerr:release
+    image: ghcr.io/hotio/overseerr:release
     expose:
       - 5055
     environment:

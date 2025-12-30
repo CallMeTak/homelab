@@ -17,7 +17,11 @@ services:
 
       - type: bind
         source: /mnt/user/data/media
-        target: /media
+        target: /data/media
+        read_only: true
+      - type: bind
+        source: /mnt/user/data/nzbdav-download
+        target: /data/nzbdav-download
         read_only: true
     restart: 'unless-stopped'
 

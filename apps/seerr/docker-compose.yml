@@ -28,3 +28,6 @@ services:
       - homepage.href=https://seerr.dev/
       - homepage.description=Media request and discovery manager for Jellyfin, Plex, and Emby
 
+networks:
+  servers:
+    external: True
